@@ -10,7 +10,7 @@ int main() {
     for (int i=0;i<4;i++){
         listemat[i]=NULL;
     }
-
+//attribution mémoire des matrices
     matrice_creuse* m0= malloc(sizeof(matrice_creuse));
     matrice_creuse* m1=malloc(sizeof(matrice_creuse));
     matrice_creuse* m2=malloc(sizeof(matrice_creuse));
@@ -45,7 +45,7 @@ int main() {
                     printf("la matrice disponible créées est %s", listemat[0]);
                     break;
                 }
-                if (listemat[0]!=NULL && listemat[1]==NULL){
+                if (listemat[0]!=NULL && listemat[1]==NULL){ 
                     listemat[1]="m1";
                     remplirMatrice(m1,N,M);
                     printf("les matrices créées sont %s %s ", listemat[0], listemat[1]);
@@ -69,7 +69,7 @@ int main() {
                 printf("saisir le numéro de la matrice à afficher (les matrices disponibles sont %s %s %s %s)", listemat[0], listemat[1],listemat[2], listemat[3]);
                 int a;
                 scanf("%d",&a);
-                switch(a){
+                switch(a){ //choix de la matrice à afficher
                     case 0: afficherMatrice(*m0);break;
                     case 1: afficherMatrice(*m1);break;
                     case 2: afficherMatrice(*m2);break;
@@ -127,7 +127,7 @@ int main() {
                 scanf("%d",&k);
                 printf("Saisir le numéro de la colonne du coefficient à modifier");
                 scanf("%d",&l);
-                switch(d){
+                switch(d){ //un cas pour une matrice
                     case 0 :
                         affecterValeur(*m0,k,l,val);
                         printf("La valeur du coefficient %d-%d est désormais %d",k,l,val);
@@ -156,15 +156,15 @@ int main() {
 
             case 6 :
                 printf("Saisir le numéro de la première matrice à additionner(les matrices disponibles sont %s %s %s %s)", listemat[0], listemat[1],listemat[2], listemat[3]);
-                int c1; //choix 1
-                int c2; //choix 2
+                int c1; //choix de la matrice 1
+                int c2; //choix de la matrice 2
                 scanf("%d",&c1);
 
                 printf("Saisir le numéro de deuxième matrice à additionner(les matrices disponibles sont %s %s %s %s)", listemat[0], listemat[1],listemat[2], listemat[3]);
                 scanf("%d",&c2);
-                switch(c1){
+                switch(c1){ //matrice 1
                     case 0 :
-                        switch (c2){
+                        switch (c2){ //matrice 2
                             case 0 : additionerMatrices(*m0,*m0);
                                 break;
                             case 1 : additionerMatrices(*m0,*m1);
@@ -230,8 +230,8 @@ int main() {
                 }
                 break;
 
-            case 8: continu = 0;
-                if (listemat[0]!=NULL && listemat[1]==NULL){
+            case 8: continu = 0; //sortie du menu puis libération de l'espace mémoire
+                if (listemat[0]!=NULL && listemat[1]==NULL){ 
                     libererMatrice(m0);
                 }
                 if (listemat[0]!=NULL && listemat[1]!=NULL && listemat[2]==NULL){
